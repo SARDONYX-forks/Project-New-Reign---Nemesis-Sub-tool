@@ -140,7 +140,7 @@ publish/
 *.[Pp]ublish.xml
 *.azurePubxml
 
-# TODO: Un-comment the next line if you do not want to checkin 
+# TODO: Un-comment the next line if you do not want to checkin
 # your web deploy settings because they may include unencrypted
 # passwords
 #*.pubxml
@@ -251,3 +251,5 @@ ModelManifest.xml
 /T2/output2.hkx
 /T2/output2.txt3
 /T2/Qt5Cored.dll
+
+.cache/

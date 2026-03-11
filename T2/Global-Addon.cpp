@@ -3,7 +3,7 @@
 
 #include "src\atomiclock.h"
 
-#include <QtCore\QProcess>
+#include <QtCore/QProcess>
 
 using namespace std;
 
@@ -17,7 +17,7 @@ void dataIDChange(string& line, usize tracker);
 void NemesisReaderFormat(int id, vecstr& output)
 {
 	usize tracker = 0;
-	
+
 	if (id < 90000)
 	{
 		for (auto& dataid : datapacktracker)
@@ -193,7 +193,7 @@ void GetFunctionLines(string filename, vecstr& storeline)
 {
 	{
 		vecstr emptyVS;
-		storeline = emptyVS; 
+		storeline = emptyVS;
 	}
 
 	string curfilename;
@@ -239,7 +239,7 @@ void GetFunctionLines(string filename, vecstr& storeline)
 			if (curfile.extension().string() != ".hkx")
 			{
 				curfilename = curfile.stem().string() + ".hkx";
-				boost::filesystem::copy_file(curfile, curfilename, boost::filesystem::copy_option::overwrite_if_exists);
+				boost::filesystem::copy_file(curfile, curfilename, boost::filesystem::copy_options::overwrite_existing);
 			}
 			else
 			{
@@ -439,4 +439,3 @@ bool hasAlpha(string line)
 
 	return false;
 }
-

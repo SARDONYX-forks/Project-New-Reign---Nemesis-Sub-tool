@@ -1,0 +1,45 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  release:
+    permissions:
+      contents: write
+
+    strategy:
+      fail-fast: false
+
+      matrix:
+        # os: [windows-latest, ubuntu-latest, macos-latest]
+        os: [windows-latest]
+        target: [hkxcmpr]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Build and Upload Artifact
+        uses: ./.github/actions/build-common
+        with:
+          target: ${{ matrix.target }}
+          mode: release
+          artifact_name: ${{ matrix.target }}-${{ matrix.os }}
+
+      - name: Package artifact
+        shell: pwsh
+        run: Compress-Archive -Path ./build/artifact/* -DestinationPath "${{ matrix.target }}-${{ matrix.os }}.zip"
+
+      - name: Create GitHub Release (gh)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create `
+            "${{ matrix.target }}-${{ matrix.os }}.zip" `
+            ".zip" `
+            --title "HKX Extractor ${{ github.ref_name }}" `
+            --generate-notes

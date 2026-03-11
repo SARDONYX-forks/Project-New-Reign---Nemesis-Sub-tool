@@ -3,6 +3,7 @@
 
 #include "Global.h"
 #include "alphanum.hpp"
+#include "animationsetdata.h"
 
 bool matchProjectScoring(std::vector<std::shared_ptr<AnimSetDataProject>>& ori, std::vector<std::shared_ptr<AnimSetDataProject>>& edit, std::string filename);
 bool matchDataScoring(std::map<std::string, datapack, alphanum_less>& ori, std::map<std::string, datapack, alphanum_less>& edit, std::string filename);
