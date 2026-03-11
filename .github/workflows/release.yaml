@@ -39,7 +39,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh release create `
+            "${{ github.ref_name }}" `
             "${{ matrix.target }}-${{ matrix.os }}.zip" `
-            ".zip" `
             --title "HKX Extractor ${{ github.ref_name }}" `
             --generate-notes
