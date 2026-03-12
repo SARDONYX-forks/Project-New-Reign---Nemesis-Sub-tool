@@ -1,11 +1,11 @@
-add_requires("boost", {configs = {
+add_requires("boost 1.90.0", {configs = {
     all        = false,
     asio       = true,
     date_time  = true,
     filesystem = true,
     thread     = true,
 }})
-add_requires("qt5core", {configs = {shared = true}})
+add_requires("qt5core 5.15.2", {configs = {shared = true}})
 
 target("hkxcmpr", function()
     set_kind("binary")

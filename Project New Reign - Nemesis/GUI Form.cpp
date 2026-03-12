@@ -5,10 +5,11 @@ using namespace System::Windows::Forms;
 
 [STAThread]
 
-void main(array<String^>^ args)
+int main(array<System::String ^> ^args)
 {
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
 	ProjectNewReignNemesis::GUIForm form;
 	Application::Run(%form);
+	return 0;
 }

@@ -1,4 +1,4 @@
-add_requires("qt5widgets", {configs = {shared = true}})
+add_requires("qt5widgets 5.15.2", {configs = {shared = true}})
 
 target("ProjectNewReignQtGUI", function ()
     set_kind("binary")
